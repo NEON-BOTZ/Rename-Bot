@@ -70,7 +70,7 @@ def send_start(bot, update):
 
 
 @Client.on_message(filters.command(["upgrade"]))
-def upgrade(bot, update):
+def rename_cb(bot, update):
     # logger.info(update)
 
     bot.send_message(
@@ -83,7 +83,33 @@ def upgrade(bot, update):
 
     
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))
-async def rename_cb(bot, update):
+async def uus_name(bot, update):
+    if update.from_user.id in Config.BANNED_USERS:
+        await bot.delete_messages(
+            chat_id=update.chat.id,
+            message_ids=update.message_id,
+            revoke=True
+        )
+        return
+    if Config.UPDATE_CHANNEL:
+        try:
+            user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text("🤭 Sorry Dude, You are **B A N N E D**.")
+               return
+        except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
+            await update.reply_text(
+                text="**Join My Updates Channel to use me & Enjoy the Free Service**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join Our Updates Channel", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]
+                ])
+            )
+            return 
+        except Exception as error:
+            print(error)
+            await update.reply_text("Something wrong contact support group")
+            return
  
     file = update.document or update.video or update.audio or update.voice or update.video_note
     try:
