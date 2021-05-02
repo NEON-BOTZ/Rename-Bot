@@ -83,7 +83,7 @@ def rename_cb(bot, update):
 
     
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))
-async def uus_name(bot, update):
+async def rename_cb(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
             chat_id=update.chat.id,
