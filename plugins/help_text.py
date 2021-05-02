@@ -82,6 +82,25 @@ def rename_cb(bot, update):
     )
 
     
+@Client.on_message(filters.command(["about"]))
+def about_user(bot, update):
+    bot.send_message(
+        chat_id=update.chat.id,
+        text=script.ABOUT_USER,
+        parse_mode="html",
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Channel📣", url="https://t.ME/NEONBOTZ"),
+                    InlineKeyboardButton("⚙️Help", callback_data="help_data")
+                ]
+            ]
+        ),
+        reply_to_message_id=message.message_id
+    )
+
+
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))
 async def rename_cb(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
