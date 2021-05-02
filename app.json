@@ -9,7 +9,7 @@
     "Rename"
   ],
   "success_url": "https://github.com/spechide/AnyDLbot",
-  "website": "https://githib.com/prgofficial",
+  "website": "https://githib.com/NeonBotz",
   "repository": "https://github.com/prgofficial/RenameBot-PermTB",
   "env": {
     "WEBHOOK": {
@@ -30,7 +30,8 @@
     },
     "AUTH_USERS": {
       "description": "allow only pre-defined users to use this bot",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "BANNED_USERS": {
       "description": "Banned Unwanted members..",
