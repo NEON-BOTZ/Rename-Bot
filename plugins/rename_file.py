@@ -39,7 +39,7 @@ async def force_name(bot, message):
 
 
 @Client.on_message(filters.private & filters.reply & filters.text)
-async def uus_name(bot, update):
+async def cus_name(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
             chat_id=update.chat.id,
