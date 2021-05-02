@@ -93,7 +93,7 @@ def about_user(bot, update):
             [
                 [
                     InlineKeyboardButton("Channel📣", url="https://t.ME/NEONBOTZ"),
-                    InlineKeyboardButton("⚙️Help", callback_data="help_data")
+                    InlineKeyboardButton("🏘Home", callback_data="start_data")
                 ]
             ]
         ),
