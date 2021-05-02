@@ -30,10 +30,17 @@ def help_user(bot, update):
     bot.send_message(
         chat_id=update.chat.id,
         text=script.HELP_USER,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="⭕️ Contact DEV ⭕️", url="https://t.me/prgofficial")]]),
         parse_mode="html",
         disable_web_page_preview=True,
-        reply_to_message_id=update.message_id
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Channel📣", url="https://t.ME/NEONBOTZ"),
+                    InlineKeyboardButton("About Me👨🏻‍🎓", callback_data="about_data")
+                ]
+            ]
+        ),
+        reply_to_message_id=message.message_id
     )
 
 
@@ -46,7 +53,19 @@ def send_start(bot, update):
         text=script.START_TEXT.format(update.from_user.first_name),
         parse_mode="html",
         disable_web_page_preview=True,
-        reply_to_message_id=update.message_id
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⚙️Help", callback_data="help_data"),
+                    InlineKeyboardButton("About Me👨🏻‍🎓", callback_data="about_data")
+                ],
+                [
+                    InlineKeyboardButton("BOT Channel📣", url="https://t.me/NeonBotZ"),
+                    InlineKeyboardButton("Support Group💬", url="https://t.ME/NeonChatz")
+                ]
+            ]
+        ),
+        reply_to_message_id=message.message_id
     )
 
 
