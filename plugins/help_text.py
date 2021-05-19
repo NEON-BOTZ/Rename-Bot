@@ -57,7 +57,7 @@ def send_start(bot, update):
             [
                 [
                     InlineKeyboardButton("⚙️Help", callback_data="help_data"),
-                    InlineKeyboardButton("About Me👨🏻‍🎓", callback_data="about_data")
+                    InlineKeyboardButton("About🤖", callback_data="about_data")
                 ],
                 [
                     InlineKeyboardButton("BOT Channel📣", url="https://t.me/NeonBotZ"),
